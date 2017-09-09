@@ -5,6 +5,7 @@
  * @private Hapi - HapiJS module
 */
 const Hapi = require('hapi')
+const APP_VERSION = require('../package.json').version
 
 require('dotenv').config()
 
@@ -25,7 +26,7 @@ server.route({
   path: '/',
   handler (request, reply) {
     return reply({
-      message: 'Hello Debate3D!'
+      message: `Hello Debate3D! ${APP_VERSION} version`
     })
   }
 })
