@@ -7,5 +7,6 @@ const Vote = require('./vote')
 const Reaction = require('./reaction')
 const Deck = require('./deck')
 const Position = require('./position')
+const Tag = require('./tag')
 
-module.exports = defaultsDeep({ RootQuery }, User, Topic, Card, Vote, Reaction, Deck, Position)
+module.exports = defaultsDeep({ RootQuery }, User, Topic, Card, Vote, Reaction, Deck, Position, Tag)

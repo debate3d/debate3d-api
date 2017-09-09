@@ -1,0 +1,9 @@
+type Tag {
+  uid: String!
+  label: String!
+  topics: [ Topic! ]!
+}
+
+input InputSearch {
+  label: String!
+}

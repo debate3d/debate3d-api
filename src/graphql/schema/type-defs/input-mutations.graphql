@@ -9,6 +9,7 @@ input InputToCreateTopic {
   id_position: Int!
   title: String!
   content: String!
+  tag: [ String! ]!
 }
 
 input InputToAddReaction {

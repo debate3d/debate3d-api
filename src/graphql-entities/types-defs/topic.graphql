@@ -11,6 +11,7 @@ type Topic {
   votes_topic: AllVotes!
   position: Position!
   cards(page: Int!): AllCards!
+  tags: [ Tag! ]!
 }
 
 type AllTopics {

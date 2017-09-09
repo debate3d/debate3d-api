@@ -10,6 +10,8 @@ type RootQuery {
   topics: AllTopics!
   topic(uid: String!): Topic!
   bestTopic: Topic!
+  tag(uid: String!): Tag!
+  tagSearch(label: String!): [ Tag! ]!
 
   positions: [ Position! ]!
   position(id: Int!): Position!
