@@ -1,0 +1,5 @@
+type Position {
+  id: ID!
+  positive: String!
+  negative: String!
+}

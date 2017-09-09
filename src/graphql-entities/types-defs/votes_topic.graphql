@@ -1,0 +1,13 @@
+type Vote {
+  id: ID!
+  uid_user: String!
+  uid_topic: String!
+  vote: String!
+  user: User!
+}
+
+type AllVotes {
+  count: String
+  positive: [ Vote ]!
+  negative: [ Vote ]!
+}

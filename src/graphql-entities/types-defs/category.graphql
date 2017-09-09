@@ -1,0 +1,6 @@
+type Category {
+  id: ID!
+  title: String!
+  description: String!
+  topics(page: Int!, limit: Int!): AllTopics!
+}

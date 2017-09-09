@@ -1,0 +1,21 @@
+type Topic {
+  uid: String!
+  uid_author: String!
+  id_position: Int!
+  title: String!
+  content: String!
+  created: String!
+  author: User!
+  ponts: Int
+  category: Category!
+  votes_topic: AllVotes!
+  position: Position!
+  cards(page: Int!): AllCards!
+}
+
+type AllTopics {
+  count: String!
+  mostVoted(page: Int!): [ Topic! ]!
+  mostCards(page: Int!): [ Topic! ]!
+  mostPonts(page: Int!): [ Topic! ]!
+}

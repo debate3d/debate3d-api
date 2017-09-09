@@ -1,0 +1,38 @@
+type User {
+  uid: String!
+  name: String
+  email: String
+  url_photo: String
+  created: String
+  cpf: String
+  cep: String
+  ponts: Int
+  facebook: String
+  twitter: String
+  instagram: String
+  site: String
+  youtube: String
+  subscriber: Boolean
+  is_debater: Boolean
+  is_moderator: Boolean
+  votes: [ Vote ]
+  cards: [ Card ]
+  reactions: [ Reaction ]
+  topics: [ Topic ]
+  deck: [ Deck ]
+}
+
+type AllUsers {
+  count: String!
+  records(page: Int!): [ User ]
+}
+
+type AllModerators {
+  count: String!
+  records(page: Int!): [ User ]
+}
+
+type AllDebaters {
+  count: String!
+  records(page: Int!): [ User ]
+}

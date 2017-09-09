@@ -1,0 +1,21 @@
+type Card {
+  uid: String!
+  uid_author: String!
+  uid_topic: String!
+  position: String!
+  content: String!
+  created: String!
+  edited: Boolean!
+  ponts: Int!
+  author: User
+  topic: Topic
+  deck: [ Deck ]
+  reaction: [ Reaction ]
+  likes: [ Reaction ]
+  dislikes: [ Reaction ]
+}
+
+type AllCards {
+  count: String!
+  records: [ Card ]
+}

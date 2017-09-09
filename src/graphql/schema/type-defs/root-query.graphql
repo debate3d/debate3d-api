@@ -1,0 +1,19 @@
+type RootQuery {
+  card(uid: String!): Card!
+
+  users: AllUsers!
+  user(uid: String!): User!
+  me: User!
+  moderators: AllModerators!
+  debaters: AllDebaters!
+
+  topics: AllTopics!
+  topic(uid: String!): Topic!
+  bestTopic: Topic!
+
+  positions: [ Position! ]!
+  position(id: Int!): Position!
+
+  categories: [ Category! ]!
+  category(id: Int!): Category!
+}

@@ -1,0 +1,53 @@
+input InputToCreateCard {
+  uid_topic: String!
+  content: String!
+  position: Boolean!
+}
+
+input InputToCreateTopic {
+  id_category: Int!
+  id_position: Int!
+  title: String!
+  content: String!
+}
+
+input InputToAddReaction {
+  uid_card: String!
+  reaction: Boolean!
+}
+
+input InputToAddDeck {
+  uid_card: String!
+}
+
+input InputToVoteTopic {
+  uid_topic: String!
+  vote: Boolean!
+}
+
+input InputToUpdateCard {
+  uid_card: String!
+  content: String!
+}
+
+input InputToUpdateUser {
+  name: String
+  cpf: String
+  cep: String
+  facebook: String
+  twitter: String
+  instagram: String
+  site: String
+  youtube: String
+}
+
+input InputToUpdateReaction {
+  id: ID!
+  reaction: Boolean!
+  uid_card: String!
+}
+
+input InputToUpdateDeck {
+  id: ID!
+  uid_card: String!
+}

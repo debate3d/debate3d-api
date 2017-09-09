@@ -1,0 +1,5 @@
+type Deck {
+  id: ID!
+  card: Card!
+  user: User!
+}

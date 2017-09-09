@@ -1,0 +1,11 @@
+type RootMutation {
+  InsertCard(data: InputToCreateCard!): Card!
+  InsertTopic(data: InputToCreateTopic!): Topic!
+  AddReaction(data: InputToAddReaction!): Reaction!
+  AddDeck(data: InputToAddDeck!): Deck!
+  VoteTopic(data: InputToVoteTopic!): Vote!
+  UpdateContent(data: InputToUpdateCard!): Card!
+  UpdateUser(data: InputToUpdateUser!): User!
+  UpdateReaction(data: InputToUpdateReaction!): Reaction!
+  UpdateDeck(data: InputToUpdateDeck!): String
+}

@@ -1,0 +1,7 @@
+type Reaction {
+  id: ID!
+  uid_user: String!
+  uid_card: String!
+  reaction: String!
+  user: User!
+}
