@@ -14,3 +14,8 @@ e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ## [1.1.0] - 2017-09-09
 
 + Inserido o tipo `Tag` e seu respectivo relacionamento com o tipo `Topic`
+
+## [1.2.0] - 2017-09-17
+
++ Atualizado relacionamento no campo `cards` presentes nos tipos `topic` e `user`
++ Atualizado relacionamento no campo `topics` no tipo `user`
