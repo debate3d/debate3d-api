@@ -16,7 +16,7 @@ type User {
   is_debater: Boolean
   is_moderator: Boolean
   votes: [ Vote ]
-  cards: [ Card ]
+  cards(page: Int!): AllCards
   reactions: [ Reaction ]
   topics: [ Topic ]
   deck: [ Deck ]

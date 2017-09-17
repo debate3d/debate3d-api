@@ -1,11 +1,10 @@
-module.exports = (root, args, context) => {
-  const { topic } = root
-  return context
-    .db('cards')
-    .where('uid_topic', topic.uid)
+const { head } = require('ramda')
+
+module.exports = (parent, args, { db }) => {
+  const { root } = parent
+  return db('cards')
+    .where(root.key, root.uid)
     .count('*')
-    .then(result => {
-      const { count } = result[0]
-      return count
-    })
+    .then(head)
+    .then(({ count }) => count)
 }

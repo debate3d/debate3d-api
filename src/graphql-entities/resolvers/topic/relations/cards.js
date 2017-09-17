@@ -1,6 +1,8 @@
+const { merge } = require('lodash')
+
 module.exports = (root, args, context) => {
   return {
     args,
-    topic: root
+    root: merge(root, { key: 'uid_topic' })
   }
 }
