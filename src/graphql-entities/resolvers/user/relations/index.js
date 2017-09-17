@@ -7,7 +7,7 @@ const votes = require('./votes')
 module.exports = {
   cards,
   deck,
-  reactions,
   topics,
+  reactions,
   votes
 }

@@ -1,5 +1,8 @@
-module.exports = (user, args, context) => {
-  return context
-    .db('topics')
-    .where('uid_author', user.uid)
+const { merge } = require('lodash')
+
+module.exports = (root, args, context) => {
+  return {
+    args,
+    root: merge(root, { key: 'uid_topic' })
+  }
 }

@@ -16,10 +16,15 @@ type User {
   is_debater: Boolean
   is_moderator: Boolean
   votes: [ Vote ]
-  cards(page: Int!): AllCards
+  cards(page: Int!): AllCards!
   reactions: [ Reaction ]
-  topics: [ Topic ]
+  topics(page: Int!): TopicsByUser!
   deck: [ Deck ]
+}
+
+type TopicsByUser {
+  count: String!
+  records: [ Topic ]!
 }
 
 type AllUsers {
