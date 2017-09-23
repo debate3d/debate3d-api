@@ -2,6 +2,7 @@ const schema = require('./schema')
 const db = require('../../db')
 const { $loadUser } = require('../helpers/auth')
 const { isFunction } = require('lodash')
+const factoryDataLoader = require('../dataLoader')
 
 module.exports = (request) => {
   return new Promise((resolve, reject) => {
@@ -10,6 +11,7 @@ module.exports = (request) => {
       schema,
       context: {
         db,
+        dataLoader: factoryDataLoader(db),
         $loadUser: (fn) => {
           const result = $loadUser(token)
           if (isFunction(fn)) {
