@@ -1,5 +1,5 @@
 const positions = (root, args, { db }) => db('position')
-const position = (root, { id }, { db }) => db('position').where({ id }).first()
+const position = (root, { id }, { dataLoader }) => dataLoader.position.load(id)
 
 module.exports = {
   positions,
