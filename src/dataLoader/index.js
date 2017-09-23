@@ -1,39 +1,18 @@
-const DataLoader = require('dataloader')
-const { curry } = require('ramda')
-const { isFunction, isString } = require('lodash')
+const { loadDataByTable, loadDataByLoader } = require('./loaders')
+const { isFunction } = require('lodash')
+const tables = require('./tables')
 
-const position = curry((db, id) => {
-  return db('position').where({ id }).first()
-})
-
-const tables = {
-  tag: 'tags',
-  position
-}
-
-const loadDataByLoader = (loader, db) => {
-  return new DataLoader(keys => {
-    return Promise.all(keys.map(loader(db)))
-  })
-}
-
-const loadData = curry((table, db, uid) => {
-  return db(table).where({ uid }).first()
-})
-
-const loadDataByTable = (table, db) => {
-  return new DataLoader(keys => {
-    return Promise.all(keys.map(loadData(table, db)))
-  })
-}
-
+/**
+ * factory for loaders
+ * @param  {Function} db knex instance
+ * @return {Object}
+ */
 const factory = db => Object.keys(tables).reduce((acc, key) => {
-  if (isFunction(tables[key])) {
-    acc[key] = loadDataByLoader(tables[key], db)
-  }
-  if (isString(tables[key])) {
-    acc[key] = loadDataByTable(tables[key], db)
-  }
+  const value = tables[key]
+  acc[key] = (isFunction(value))
+    ? loadDataByLoader(value, db)
+    : loadDataByTable(value, db)
+
   return acc
 }, {})
 
