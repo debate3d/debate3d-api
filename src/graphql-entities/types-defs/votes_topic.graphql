@@ -2,7 +2,7 @@ type Vote {
   id: ID!
   uid_user: String!
   uid_topic: String!
-  vote: String!
+  vote: Boolean!
   user: User!
 }
 
