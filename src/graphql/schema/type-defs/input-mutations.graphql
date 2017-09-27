@@ -5,7 +5,6 @@ input InputToCreateCard {
 }
 
 input InputToCreateTopic {
-  id_category: Int!
   id_position: Int!
   title: String!
   content: String!
