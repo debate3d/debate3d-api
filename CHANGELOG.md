@@ -19,3 +19,8 @@ e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 + Atualizado relacionamento no campo `cards` presentes nos tipos `topic` e `user`
 + Atualizado relacionamento no campo `topics` no tipo `user`
+
+## [1.3.0] - 2017-09-30
+
++ Inserido DataLoader no projeto, com suas configurações. O DataLoader será usado nas tags, posições, nos cards, tópicos e usuários.
++ Criado `scalars` para trabalhar com tempo
