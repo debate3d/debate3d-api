@@ -4,7 +4,7 @@ type Card {
   uid_topic: String!
   position: String!
   content: String!
-  created: String!
+  created: Timestamp!
   edited: Boolean!
   ponts: Int!
   author: User

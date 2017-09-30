@@ -3,7 +3,7 @@ type User {
   name: String
   email: String
   url_photo: String
-  created: String
+  created: Timestamp
   cpf: String
   cep: String
   ponts: Int

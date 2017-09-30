@@ -4,7 +4,7 @@ type Topic {
   id_position: Int!
   title: String!
   content: String!
-  created: String!
+  created: Timestamp!
   author: User!
   ponts: Int
   category: Category!
