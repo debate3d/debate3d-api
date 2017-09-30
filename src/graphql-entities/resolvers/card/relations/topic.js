@@ -1,6 +1,3 @@
-module.exports = (root, args, context) => {
-  return context
-    .db('topics')
-    .where('uid', root.uid_topic)
-    .first()
+module.exports = ({ uid_topic }, args, { dataLoader }) => {
+  return dataLoader.topics.load(uid_topic)
 }

@@ -1,4 +1,4 @@
-const topic = (root, { uid }, { db }) => db('topics').where({ uid }).first()
+const topic = (root, { uid }, { dataLoader }) => dataLoader.topics.load(uid)
 
 const bestTopic = (root, args, { db }) => db('topics').orderBy('ponts', 'desc').first()
 

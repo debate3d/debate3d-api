@@ -1,4 +1,4 @@
-const card = (root, { uid }, { db }) => db('cards').where({ uid }).first()
+const card = (root, { uid }, { dataLoader }) => dataLoader.cards.load(uid)
 
 module.exports = {
   card

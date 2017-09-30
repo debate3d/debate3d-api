@@ -4,6 +4,7 @@ const position = require('./position')
 const cards = require('./cards')
 const category = require('./category')
 const tags = require('./tags')
+const ponts = require('./ponts')
 
 module.exports = {
   author,
@@ -11,5 +12,6 @@ module.exports = {
   position,
   cards,
   category,
-  tags
+  tags,
+  ponts
 }

@@ -4,6 +4,9 @@ const position = curry((db, id) => db('position').where({ id }).first())
 
 const tables = {
   tag: 'tags',
+  users: 'users',
+  topics: 'topics',
+  cards: 'cards',
   position
 }
 
