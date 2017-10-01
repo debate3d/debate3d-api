@@ -26,7 +26,8 @@ const auth_register = {
             created,
             uid,
             ponts: 0,
-            name
+            name,
+            is_subscriber: false
           }
           return insert(tables.users(), user)
             .then(rows => {

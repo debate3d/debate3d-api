@@ -8,7 +8,8 @@ module.exports = data => {
   const user = {
     created: returnDateToDb(),
     uid: generator(),
-    ponts: 0
+    ponts: 0,
+    is_subscriber: false
   }
 
   return Object.assign({ }, common, user)
