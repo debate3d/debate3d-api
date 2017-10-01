@@ -25,3 +25,4 @@ e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 + Inserido DataLoader no projeto, com suas configurações. O DataLoader será usado nas tags, posições, nos cards, tópicos e usuários.
 + Criado `scalars` para trabalhar com tempo
 + Insert mutation for login with facebook
++ Atualizado lógica na ação votar no tópico: o autor pode votar
