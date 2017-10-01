@@ -41,3 +41,7 @@ type AllDebaters {
   count: String!
   records(page: Int!): [ User ]
 }
+
+type TokenObject {
+  token: String!
+}

@@ -1,4 +1,5 @@
 type RootMutation {
+  LoginFacebook(data: InputToLoginFacebook!): TokenObject!
   InsertCard(data: InputToCreateCard!): Card!
   InsertTopic(data: InputToCreateTopic!): Topic!
   AddReaction(data: InputToAddReaction!): Reaction!

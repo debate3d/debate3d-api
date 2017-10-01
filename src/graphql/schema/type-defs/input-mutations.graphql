@@ -51,3 +51,10 @@ input InputToUpdateDeck {
   id: ID!
   uid_card: String!
 }
+
+input InputToLoginFacebook {
+  id: String!
+  email: String!
+  url_photo: String!
+  name: String!
+}
