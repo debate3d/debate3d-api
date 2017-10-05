@@ -29,3 +29,7 @@ e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 + Criado `scalars` para trabalhar com tempo
 + Insert mutation for login with facebook
 + Atualizado lógica na ação votar no tópico: o autor pode votar
+
+## [1.5.0] - 2017-10-04
+
++ Inserido o conceito de avatar a plataforma
