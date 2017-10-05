@@ -39,6 +39,7 @@ input InputToUpdateUser {
   instagram: String
   site: String
   youtube: String
+  avatar_id: Int
 }
 
 input InputToUpdateReaction {
@@ -55,6 +56,5 @@ input InputToUpdateDeck {
 input InputToLoginFacebook {
   id: String!
   email: String!
-  url_photo: String!
   name: String!
 }

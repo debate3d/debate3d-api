@@ -2,7 +2,7 @@ type User {
   uid: String!
   name: String
   email: String
-  url_photo: String
+  avatar_id: Int
   created: Timestamp
   cpf: String
   cep: String
