@@ -9,7 +9,9 @@ module.exports = data => {
     created: returnDateToDb(),
     uid: generator(),
     ponts: 0,
-    is_subscriber: false
+    subscriber: false,
+    is_debater: false,
+    is_moderator: false
   }
 
   return Object.assign({ }, common, user)

@@ -3,19 +3,20 @@ const Bcrypt = require('bcrypt')
 const Joi = require('joi')
 const moment = require('moment')
 const generator = require('node-uuid')
+const { isEmpty } = require('lodash')
+const { head } = require('ramda')
 
-const tables = require('../../helpers/tables')
-const { selectWhere, insert } = require('../../helpers/database')
+const db = require('../../../db')
 const { createToken } = require('../../helpers/auth')
 
 const auth_register = {
   method: 'POST',
   path: '/auth/users',
-  handler (request, reply) {
-    const { email, password, name } = request.payload
-    return selectWhere(tables.users(), 'email', { email })
+  handler ({ payload }, reply) {
+    const { email, password, name } = payload
+    return db('users').where({ email })
       .then(rows => {
-        if (rows.length === 0) {
+        if (isEmpty(rows)) {
           const salt = Bcrypt.genSaltSync(10)
           const hash = Bcrypt.hashSync(password, salt)
           const created = moment().format('YYYY-MM-DD')
@@ -27,28 +28,25 @@ const auth_register = {
             uid,
             ponts: 0,
             name,
-            is_subscriber: false
+            subscriber: false,
+            is_debater: false,
+            is_moderator: false
           }
-          return insert(tables.users(), user)
-            .then(rows => {
-              const uid = rows[0]
-              if (uid) {
-                return reply.returnToken(createToken({ uid }))
-              }
-              return reply(Boom.badImplementation('Ocorreu um erro no servidor'))
-            })
+          return db('users').insert(user).returning('uid')
+            .then(head)
+            .then(uid => reply.returnToken(createToken({ uid })))
             .catch(err => {
-              reply(Boom.badImplementation('Ocorreu um erro no servidor'))
               if (err) throw err
+              console.error(err)
             })
         }
-        return reply({
-          message: `O email ${email} já está cadastrado no banco de dados`
-        })
+        const msgErr = `O email ${email} já está cadastrado no banco de dados`
+        return reply(Boom.unauthorized(msgErr))
       })
       .catch(err => {
-        reply(Boom.badImplementation('Ocorreu um erro no servidor'))
         if (err) throw err
+        console.error(err)
+        return reply(Boom.badImplementation('Ocorreu um erro no servidor'))
       })
   },
   config: {
