@@ -23,22 +23,22 @@ type User {
 }
 
 type TopicsByUser {
-  count: String!
+  count: Int!
   records: [ Topic ]!
 }
 
 type AllUsers {
-  count: String!
+  count: Int!
   records(page: Int!): [ User ]
 }
 
 type AllModerators {
-  count: String!
+  count: Int!
   records(page: Int!): [ User ]
 }
 
 type AllDebaters {
-  count: String!
+  count: Int!
   records(page: Int!): [ User ]
 }
 
