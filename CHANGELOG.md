@@ -33,3 +33,7 @@ e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ## [1.5.0] - 2017-10-04
 
 + Inserido o conceito de avatar a plataforma
+
+## [1.6.0] - 2017-10-08
+
++ Inserido Bugsnag a plataforma com helpers para as rotas e as mutations do GraphQL
