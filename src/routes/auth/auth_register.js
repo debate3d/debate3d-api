@@ -6,6 +6,7 @@ const generator = require('node-uuid')
 const { isEmpty } = require('lodash')
 const { head } = require('ramda')
 
+const { routeErrorHandler } = require('../../helpers/bugnag')
 const db = require('../../../db')
 const { createToken } = require('../../helpers/auth')
 
@@ -37,7 +38,7 @@ const auth_register = {
             .then(uid => reply.returnToken(createToken({ uid })))
             .catch(err => {
               if (err) throw err
-              console.error(err)
+              routeErrorHandler(err, 'badImplementation', reply)
             })
         }
         const msgErr = `O email ${email} já está cadastrado no banco de dados`
@@ -46,7 +47,7 @@ const auth_register = {
       .catch(err => {
         if (err) throw err
         console.error(err)
-        return reply(Boom.badImplementation('Ocorreu um erro no servidor'))
+        routeErrorHandler(err, 'badImplementation', reply)
       })
   },
   config: {

@@ -1,5 +1,4 @@
-const Boom = require('boom')
-
+const { routeErrorHandler } = require('../../helpers/bugnag')
 const tables = require('../../helpers/tables')
 const { selectWhere } = require('../../helpers/database')
 
@@ -17,8 +16,8 @@ const auth_me = {
         })
       })
       .catch(err => {
-        reply(Boom.badImplementation(err))
         if (err) throw err
+        routeErrorHandler(err, 'badImplementation', reply)
       })
   },
   config: {

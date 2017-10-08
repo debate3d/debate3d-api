@@ -6,6 +6,8 @@ const factoryTopic = require('./factory')
 const { USER } = require('../../../../config/pontuation')
 const insertTopic = require('./insert-topic')
 
+const { graphqlErrorHandler } = require('../../../helpers/bugnag')
+
 const createTopic = (data, db) => {
   const tags = data.tag
   const dataToInsert = omit(data, 'tag')
@@ -15,10 +17,7 @@ const createTopic = (data, db) => {
     .then(() => updateModerator(db, data.uid_author))
     .then(() => insertTopic(db, fields, topic))
     .then(relationWithTags(db, tags))
-    .catch(err => {
-      console.error(err)
-      return Promise.reject(new Error('Não foi possível criar o tópico'))
-    })
+    .catch(graphqlErrorHandler)
 }
 
 module.exports = createTopic

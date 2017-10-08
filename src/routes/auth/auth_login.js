@@ -2,6 +2,7 @@ const Boom = require('boom')
 const Bcrypt = require('bcrypt')
 const Joi = require('joi')
 
+const { routeErrorHandler } = require('../../helpers/bugnag')
 const tables = require('../../helpers/tables')
 const { selectWhere } = require('../../helpers/database')
 const { createToken } = require('../../helpers/auth')
@@ -32,8 +33,8 @@ const auth_register = {
         return reply(Boom.badRequest('Não há usuario com este email no banco de dados'))
       })
       .catch(err => {
-        reply(Boom.badImplementation(err))
         if (err) throw err
+        routeErrorHandler(err, 'badImplementation', reply)
       })
   },
   config: {
