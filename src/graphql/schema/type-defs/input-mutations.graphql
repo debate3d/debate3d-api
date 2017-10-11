@@ -58,3 +58,7 @@ input InputToLoginFacebook {
   email: String!
   name: String!
 }
+
+input InputToSubscriber {
+  cupom: String!
+}

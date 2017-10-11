@@ -8,6 +8,7 @@ const UpdateUser = require('./update-user')
 const UpdateReaction = require('./update-reaction')
 const UpdateDeck = require('./update-deck')
 const LoginFacebook = require('./login-facebook')
+const CreateSubscriber = require('./create-subscriber')
 
 const mutations = {
   RootMutation: {
@@ -20,7 +21,8 @@ const mutations = {
     UpdateReaction,
     UpdateDeck,
     UpdateUser,
-    LoginFacebook
+    LoginFacebook,
+    CreateSubscriber
   }
 }
 
