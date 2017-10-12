@@ -13,6 +13,7 @@ type User {
   site: String
   youtube: String
   subscriber: Boolean
+  administrator: Boolean
   is_debater: Boolean
   is_moderator: Boolean
   votes: [ Vote ]

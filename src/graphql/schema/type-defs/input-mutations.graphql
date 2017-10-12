@@ -62,3 +62,13 @@ input InputToLoginFacebook {
 input InputToSubscriber {
   cupom: String!
 }
+
+input UserToSubscriber {
+  uid: String!
+  email: String!
+}
+
+input InputToUpdateUserToSubscriber {
+  users: [ UserToSubscriber! ]!
+  subscriber: Boolean!
+}
