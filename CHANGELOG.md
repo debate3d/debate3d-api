@@ -38,3 +38,7 @@ e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 + Inserido Bugsnag a plataforma com helpers para as rotas e as mutations do GraphQL
 + Inserido mutation para setar o usuário como assinante
+
+## [1.7.0] - 2017-10-12
+
++ Inserido mutation para colocar usuários como assinantes
