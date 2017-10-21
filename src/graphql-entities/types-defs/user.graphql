@@ -56,4 +56,5 @@ type UserStats {
   votesGived: Int!
   cardsCreated: Int!
   topicsCreated: Int!
+  deckGived: Int!
 }

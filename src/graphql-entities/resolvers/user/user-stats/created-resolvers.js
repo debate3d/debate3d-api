@@ -18,10 +18,22 @@ const reactionsGived = ({ uid }, args, { db }) => {
   return getCount(db, 'reactions_users', where)
 }
 
+const deckGived = ({ uid }, args, { db }) => {
+  const where = { uid_user: uid }
+
+  return getCount(db, 'decks_store', where)
+}
+
 const votesGived = ({ uid }, args, { db }) => {
   const where = { uid_user: uid }
 
   return getCount(db, 'votes_topic', where)
 }
 
-module.exports = { cardsCreated, reactionsGived, topicsCreated, votesGived }
+module.exports = {
+  cardsCreated,
+  deckGived,
+  reactionsGived,
+  topicsCreated,
+  votesGived
+}
