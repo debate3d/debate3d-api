@@ -9,4 +9,15 @@ const Deck = require('./deck')
 const Position = require('./position')
 const Tag = require('./tag')
 
-module.exports = defaultsDeep({ RootQuery }, User, Topic, Card, Vote, Reaction, Deck, Position, Tag)
+const entities = [
+  Card,
+  Deck,
+  Position,
+  Reaction,
+  Vote,
+  Tag,
+  Topic,
+  User
+]
+
+module.exports = defaultsDeep({ RootQuery }, ...entities)

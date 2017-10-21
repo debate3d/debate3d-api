@@ -46,3 +46,14 @@ type AllDebaters {
 type TokenObject {
   token: String!
 }
+
+type UserStats {
+  likesReceived: Int!
+  dislikesReceived: Int!
+  deckReceived: Int!
+  votesReceived: Int!
+  reactionsGived: Int!
+  votesGived: Int!
+  cardsCreated: Int!
+  topicsCreated: Int!
+}

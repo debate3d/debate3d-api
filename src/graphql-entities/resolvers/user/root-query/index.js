@@ -12,10 +12,15 @@ const users = require('../all-users')
 const moderators = require('../all-moderators')
 const debaters = require('../all-debaters')
 
+const userStats = (root, args, { db }) => {
+  return args
+}
+
 module.exports = {
   me,
   user,
   users,
+  userStats,
   userSearch,
   moderators,
   debaters

@@ -7,6 +7,7 @@ type RootQuery {
   moderators: AllModerators!
   debaters: AllDebaters!
   userSearch(email: String): [ User! ]!
+  userStats(uid: String!): UserStats!
 
   topics: AllTopics!
   topic(uid: String!): Topic!
