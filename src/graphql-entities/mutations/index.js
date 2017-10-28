@@ -10,6 +10,7 @@ const UpdateDeck = require('./update-deck')
 const LoginFacebook = require('./login-facebook')
 const CreateSubscriber = require('./create-subscriber')
 const UpdateUserToSubscriber = require('./update-subscribers')
+const MarkUserToVerified = require('./mark-user-to-verified')
 
 const mutations = {
   RootMutation: {
@@ -24,7 +25,8 @@ const mutations = {
     UpdateUser,
     LoginFacebook,
     CreateSubscriber,
-    UpdateUserToSubscriber
+    UpdateUserToSubscriber,
+    MarkUserToVerified
   }
 }
 
