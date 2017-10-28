@@ -1,6 +1,7 @@
 type User {
   uid: String!
   name: String
+  nickname: String
   email: String
   avatar_id: Int
   created: Timestamp
@@ -16,6 +17,8 @@ type User {
   administrator: Boolean
   is_debater: Boolean
   is_moderator: Boolean
+  is_verified: Boolean
+  is_moderator_verified: Boolean
   votes: [ Vote ]
   cards(page: Int!): AllCards!
   reactions: [ Reaction ]

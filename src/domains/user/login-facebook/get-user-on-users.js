@@ -2,7 +2,7 @@ const { isEmpty } = require('lodash')
 const { curry, head } = require('ramda')
 
 const ifExists = require('./if-exists')
-const factoryUser = require('./factory-user')
+const { factoryUser } = require('../support/factories')
 
 /**
  * create user or return the Object

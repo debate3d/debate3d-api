@@ -10,5 +10,6 @@ type RootMutation {
   UpdateReaction(data: InputToUpdateReaction!): Reaction!
   UpdateDeck(data: InputToUpdateDeck!): String
   CreateSubscriber(data: InputToSubscriber!): Boolean!
-  UpdateUserToSubscriber(data: InputToUpdateUserToSubscriber): [ String! ]
+  UpdateUserToSubscriber(data: InputToUpdateUserToSubscriber!): [ String! ]
+  MarkUserToVerified(data: InputToUpdateUser!): Boolean
 }

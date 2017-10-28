@@ -1,12 +1,11 @@
 const Boom = require('boom')
 const Bcrypt = require('bcrypt')
 const Joi = require('joi')
-const moment = require('moment')
-const generator = require('node-uuid')
 const { isEmpty } = require('lodash')
 const { head } = require('ramda')
 
 const { routeErrorHandler } = require('../../helpers/bugnag')
+const { factoryUser } = require('../../helpers/common')
 const db = require('../../../db')
 const { createToken } = require('../../helpers/auth')
 
@@ -20,19 +19,7 @@ const auth_register = {
         if (isEmpty(rows)) {
           const salt = Bcrypt.genSaltSync(10)
           const hash = Bcrypt.hashSync(password, salt)
-          const created = moment().format('YYYY-MM-DD')
-          const uid = generator()
-          const user = {
-            email,
-            password: hash,
-            created,
-            uid,
-            ponts: 0,
-            name,
-            subscriber: false,
-            is_debater: false,
-            is_moderator: false
-          }
+          const user = factoryUser({ password: hash, email, name })
           return db('users').insert(user).returning('uid')
             .then(head)
             .then(uid => reply.returnToken(createToken({ uid })))
