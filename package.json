@@ -20,6 +20,7 @@
   "author": "Emanuel G <emanuelgdesouza@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/storage": "^1.4.0",
     "bcrypt": "^1.0.2",
     "bell": "^8.7.0",
     "boom": "^5.1.0",
