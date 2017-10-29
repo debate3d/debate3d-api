@@ -1,6 +1,7 @@
+const { head } = require('lodash')
+
 const { update } = require('../../../helpers/database')
 const { returnFields } = require('../../../helpers/common')
-const { head } = require('lodash')
 
 const updateUser = (data, db, uidUser) => {
   const fields = returnFields(['uid', 'name', 'cpf', 'cep', 'facebook', 'twitter', 'instagram', 'site', 'youtube'], data)
