@@ -61,3 +61,8 @@ type UserStats {
   topicsCreated: Int!
   deckGived: Int!
 }
+
+input UserFilter {
+  email: String
+  nickname: String
+}

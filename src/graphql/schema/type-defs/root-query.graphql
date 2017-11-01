@@ -6,18 +6,18 @@ type RootQuery {
   me: User!
   moderators: AllModerators!
   debaters: AllDebaters!
-  userSearch(email: String): [ User! ]!
-  userStats(uid: String!): UserStats!
+  userSearch (filter: UserFilter!): [ User! ]!
+  userStats (uid: String!): UserStats!
 
   topics: AllTopics!
-  topic(uid: String!): Topic!
+  topic (uid: String!): Topic!
   bestTopic: Topic!
-  tag(uid: String!): Tag!
-  tagSearch(label: String!): [ Tag! ]!
+  tag (uid: String!): Tag!
+  tagSearch (label: String!): [ Tag! ]!
 
   positions: [ Position! ]!
-  position(id: Int!): Position!
+  position (id: Int!): Position!
 
   categories: [ Category! ]!
-  category(id: Int!): Category!
+  category (id: Int!): Category!
 }

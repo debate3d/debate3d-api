@@ -4,8 +4,13 @@ const me = (root, args, { $loadUser, db }) => $loadUser(user => singleUser(db, u
 
 const user = (root, { uid }, { dataLoader }) => dataLoader.users.load(uid)
 
-const userSearch = (root, { email }, { db }) => {
-  return db('users').whereRaw(`email ilike '%${email}%'`)
+const userSearch = (root, { filter }, { db }) => {
+  const { email, nickname } = filter
+  const query = db('users')
+  if (email) {
+    query.whereRaw(`email ilike '%${email}%'`)
+  }
+  return query.where({ nickname })
 }
 
 const users = require('../all-users')
