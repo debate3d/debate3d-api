@@ -32,7 +32,7 @@ input InputToUpdateCard {
 
 input InputToUpdateUser {
   name: String
-  nickname: String!
+  nickname: String
   cpf: String!
   cep: String
   facebook: String
@@ -40,7 +40,7 @@ input InputToUpdateUser {
   instagram: String
   site: String
   youtube: String
-  avatar_id: Int!
+  avatar_id: String!
 }
 
 input InputToUpdateReaction {
