@@ -65,4 +65,5 @@ type UserStats {
 input UserFilter {
   email: String
   nickname: String
+  is_equal: Boolean
 }
