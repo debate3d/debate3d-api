@@ -14,6 +14,7 @@ type RootQuery {
   bestTopic: Topic!
   tag (uid: String!): Tag!
   tagSearch (label: String!): [ Tag! ]!
+  topicSearch (filter: InputTopicFilter): topicSearch!
 
   positions: [ Position! ]!
   position (id: Int!): Position!
