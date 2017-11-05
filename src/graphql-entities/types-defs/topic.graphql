@@ -3,6 +3,7 @@ type Topic {
   uid_author: String!
   id_position: Int!
   title: String!
+  nickname: String
   content: String!
   created: Timestamp!
   author: User!
