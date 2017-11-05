@@ -6,7 +6,7 @@ type RootQuery {
   me: User!
   moderators: AllModerators!
   debaters: AllDebaters!
-  userSearch (filter: UserFilter!): [ User! ]!
+  userSearch (filter: InputUserFilter!): userSearch!
   userStats (uid: String!): UserStats!
 
   topics: AllTopics!

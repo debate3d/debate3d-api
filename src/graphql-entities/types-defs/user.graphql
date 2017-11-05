@@ -62,7 +62,12 @@ type UserStats {
   deckGived: Int!
 }
 
-input UserFilter {
+type userSearch {
+  count: Int!
+  records: [ User ]!
+}
+
+input InputUserFilter {
   email: String
   nickname: String
   is_equal: Boolean
