@@ -4,6 +4,7 @@ type Topic {
   id_position: Int!
   title: String!
   nickname: String
+  url_image: String
   content: String!
   created: Timestamp!
   author: User!
