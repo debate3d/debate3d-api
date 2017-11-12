@@ -3,7 +3,8 @@ type User {
   name: String
   nickname: String
   email: String
-  avatar_id: String
+  avatar_id: String # avatar do usuário (todos tem)
+  banner_url: String # banner do usuário moderador (somente assinantes)
   created: Timestamp
   cpf: String
   cep: String
