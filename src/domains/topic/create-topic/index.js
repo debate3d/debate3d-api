@@ -6,7 +6,6 @@ const { incrementUser, updateModerator } = require('../../user')
 const factoryTopic = require('./factory')
 const { USER } = require('../../../../config/pontuation')
 const insertTopic = require('./insert-topic')
-// const getImage = require('../upload-file')
 
 const { graphqlErrorHandler } = require('../../../helpers/bugnag')
 
@@ -19,7 +18,6 @@ const createTopic = (data, db) => {
     .then(() => updateModerator(db, data.uid_author))
     .then(() => insertTopic(db, fields, topic))
     .then(relationWithTags(db, tags))
-    // .then(getImage(db, data.image, topic))
     .catch(graphqlErrorHandler)
 }
 

@@ -11,6 +11,7 @@ const LoginFacebook = require('./login-facebook')
 const CreateSubscriber = require('./create-subscriber')
 const UpdateUserToSubscriber = require('./update-subscribers')
 const MarkUserToVerified = require('./mark-user-to-verified')
+const UpdateTopic = require('./update-topic')
 
 const mutations = {
   RootMutation: {
@@ -26,6 +27,7 @@ const mutations = {
     LoginFacebook,
     CreateSubscriber,
     UpdateUserToSubscriber,
+    UpdateTopic,
     MarkUserToVerified
   }
 }

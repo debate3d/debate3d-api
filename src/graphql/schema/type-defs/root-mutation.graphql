@@ -12,4 +12,5 @@ type RootMutation {
   CreateSubscriber(data: InputToSubscriber!): Boolean!
   UpdateUserToSubscriber(data: InputToUpdateUserToSubscriber!): [ String! ]
   MarkUserToVerified(data: InputToUpdateUser!): Boolean
+  UpdateTopic (data: InputToEditTopic!): Boolean
 }

@@ -9,6 +9,13 @@ input InputToCreateTopic {
   title: String!
   content: String!
   tag: [ String! ]!
+  url_image: String!
+}
+
+input InputToEditTopic {
+  uid: String!
+  content: String
+  url_image: String
 }
 
 input InputToAddReaction {
