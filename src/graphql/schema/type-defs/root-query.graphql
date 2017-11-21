@@ -2,7 +2,7 @@ type RootQuery {
   card(uid: String!): Card!
 
   users: AllUsers!
-  user(uid: String!): User!
+  user(uid: String, nickname: String): User!
   me: User!
   moderators: AllModerators!
   debaters: AllDebaters!
@@ -10,7 +10,7 @@ type RootQuery {
   userStats (uid: String!): UserStats!
 
   topics: AllTopics!
-  topic (uid: String!): Topic!
+  topic (uid: String, nickname: String): Topic!
   bestTopic: Topic!
   tag (uid: String!): Tag!
   tagSearch (label: String!): [ Tag! ]!
