@@ -22,6 +22,5 @@ const getPublicId = url_image => {
 
 module.exports = url_image => {
   const publicId = getPublicId(url_image)
-  console.log(publicId)
   return cloudinary.v2.uploader.destroy(publicId, getInfos)
 }
