@@ -5,6 +5,9 @@ Todas as anotações do projeto estarão neste documento
 O formato é baseado em [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2017-11-26
++ Terminado versão 2.0.0 da plataforma: versão estável
+
 ## [1.8.0] - 2017-10-21
 
 + Criado UserStats type

@@ -8,3 +8,9 @@ Esta API possui a seguinte stack:
 + **Framework NodeJS**: [Hapi.js](https://hapijs.com/);
 + **Banco de Dados**: [PostgreSQL](https://www.postgresql.org/).
 + [GraphQL](http://graphql.org/)
+
+## TODO
+
++ Adicionar testes
+  + Testes de integração
+  + Testar os `helpers`
