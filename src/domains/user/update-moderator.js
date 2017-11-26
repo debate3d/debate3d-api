@@ -1,5 +1,5 @@
-const { update } = require('../../helpers/database')
-
 module.exports = (db, uid) => {
-  return update(db('users'), { is_moderator: true }, { uid })
+  return db('users')
+    .update({ is_moderator: true })
+    .where({ uid })
 }

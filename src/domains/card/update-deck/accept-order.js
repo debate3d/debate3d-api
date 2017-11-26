@@ -1,9 +1,5 @@
-const { deleteQuery } = require('../../../helpers/database')
-
 const { decrementUser } = require('../../user')
-
 const decrementCard = require('../decrement-card')
-
 const {
   USER,
   CARD
@@ -18,7 +14,11 @@ const acceptOrder = (data, db, uidAuthorCard) => {
 
   const { id } = data
 
-  return Promise.all(increments).then(_ => deleteQuery(db, 'decks_store', { id }))
+  return Promise.all(increments).then(_ => {
+    return db('decks_store')
+      .where({ id })
+      .del()
+  })
 }
 
 module.exports = acceptOrder

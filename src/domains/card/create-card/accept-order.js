@@ -1,13 +1,9 @@
+const { head } = require('lodash')
+
 const factoryCard = require('./factory')
-
-const { insertQuery } = require('../../../helpers/database')
-
 const { returnFields } = require('../../../helpers/common')
-
 const { incrementUser, updateDebater } = require('../../user')
-
 const incrementTopic = require('../../topic/increment-topic')
-
 const {
   USER,
   TOPIC
@@ -25,7 +21,14 @@ const acceptOrder = (data, db, uid_author) => {
   increments.push(incrementUser(db, data.uid_author, USER.CREATE_CARD))
   increments.push(incrementTopic(db, data.uid_topic, TOPIC.RECEIVE_CARD))
 
-  return Promise.all(increments).then(_ => insertQuery(db, 'cards', fields, card))
+  return Promise
+    .all(increments)
+    .then(_ => {
+      return db('cards')
+        .insert(card)
+        .returning(fields)
+        .then(head)
+    })
 }
 
 module.exports = acceptOrder

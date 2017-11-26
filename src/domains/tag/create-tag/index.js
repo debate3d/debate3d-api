@@ -10,7 +10,10 @@ const factoryTag = require('./factory')
  */
 const createTag = (db, label) => {
   const tag = factoryTag(label)
-  return db('tags').insert(tag).returning([ 'uid', 'label' ]).then(head)
+  return db('tags')
+    .insert(tag)
+    .returning([ 'uid', 'label' ])
+    .then(head)
 }
 
 module.exports = curry(createTag)

@@ -11,8 +11,12 @@ const relationTagsWithTopic = (db, tags, uid_topic) => {
       uid_tag: tag.uid,
       uid_topic
     }
-    return db('tags_to_topic').insert(relation).returning('id')
+
+    return db('tags_to_topic')
+      .insert(relation)
+      .returning('id')
   })
+
   return Promise.all(tagsMapped)
 }
 

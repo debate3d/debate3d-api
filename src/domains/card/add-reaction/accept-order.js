@@ -1,13 +1,9 @@
-const { insertQuery } = require('../../../helpers/database')
+const { head } = require('lodash')
 
 const { returnFields } = require('../../../helpers/common')
-
 const { incrementUser, decrementUser } = require('../../user')
-
 const incrementCard = require('../increment-card')
-
 const decrementCard = require('../decrement-card')
-
 const {
   USER,
   CARD
@@ -27,7 +23,15 @@ const acceptOrder = (data, db, uidAuthorCard) => {
     increments.push(decrementUser(db, uidAuthorCard, USER.RECEIVE_DISLIKE))
     increments.push(decrementCard(db, uidAuthorCard, CARD.RECEIVE_DISLIKE))
   }
- return Promise.all(increments).then(_ => insertQuery(db, 'reactions_users', fields, data))
+
+  return Promise
+    .all(increments)
+    .then(_ => {
+      return db('reactions_users')
+        .insert(data)
+        .returning(fields)
+        .then(head)
+    })
 }
 
 module.exports = acceptOrder

@@ -1,14 +1,16 @@
 const returnOffset = require('./return-offset')
-const { groupBy } = require('../../../../helpers/database')
 const returningTopics = require('./returning-topics')
-const tables = require('../../../../helpers/tables')
 
-module.exports = (root, args, context) => {
+module.exports = (root, { db }, context) => {
   const LIMIT = 10
   const { page } = root
   const offset = returnOffset(page, LIMIT)
-  return groupBy(tables.votes_topic(), 'uid_topic', 'uid_topic')
+
+  return db('votes_topic')
+    .select('uid_topic')
+    .groupBy('uid_topic')
+    .orderByRaw(`count('uid_topic') desc`)
     .offset(offset)
     .limit(LIMIT)
-    .then(returningTopics)
+    .then(returningTopics(db))
 }

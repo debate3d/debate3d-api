@@ -8,10 +8,15 @@ const createTag = require('./create-tag')
  */
 const createTags = (db, tags) => {
   const tagsMapped = tags.map(tag => {
-    return db('tags').whereRaw(`uid = '${tag}' OR label = '${tag}'`)
+    return db('tags')
+      .whereRaw(`uid = '${tag}' OR label = '${tag}'`)
       .then(rows => {
         // if tag === uid_tag, return the obj
-        if (rows.length !== 0) return db('tags').where({ uid: tag }).first()
+        if (rows.length !== 0) {
+          return db('tags')
+            .where({ uid: tag })
+            .first()
+        }
 
         // if not, create a new tag
         return createTag(db, tag)

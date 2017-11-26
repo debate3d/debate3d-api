@@ -1,10 +1,16 @@
-const { countField, hasEntity } = require('../../../helpers/database')
-const { head } = require('lodash')
+const { head, toInteger } = require('lodash')
+
+const hasEntity = countObj => toInteger(countObj.count) !== 0
 
 module.exports = (db, uid_user, uid_card) => {
   const condition = {
     uid_user,
     uid_card
   }
-  return countField(db('reactions_users'), 'id', condition).then(head).then(hasEntity)
+
+  return db('decks_store')
+    .where(condition)
+    .count('id')
+    .then(head)
+    .then(hasEntity)
 }

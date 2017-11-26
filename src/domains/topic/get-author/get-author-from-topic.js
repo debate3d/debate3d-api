@@ -1,5 +1,6 @@
-const { selectWhere } = require('../../../helpers/database')
-
 module.exports = (db, fields = ['*'], uid) => {
-  return selectWhere(db('topics'), fields, { uid }).first()
+  return db('topics')
+    .select(fields)
+    .where({ uid })
+    .first()
 }

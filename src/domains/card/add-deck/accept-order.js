@@ -1,11 +1,8 @@
-const { insertQuery } = require('../../../helpers/database')
+const { head } = require('lodash')
 
 const { returnFields } = require('../../../helpers/common')
-
 const { incrementUser } = require('../../user')
-
 const incrementCard = require('../increment-card')
-
 const {
   USER,
   CARD
@@ -21,7 +18,14 @@ const acceptOrder = (data, db, uidAuthorCard) => {
   increments.push(incrementUser(db, uidAuthorCard, USER.RECEIVE_DECK))
   increments.push(incrementCard(db, uidCard, CARD.RECEIVE_DECK))
 
-  return Promise.all(increments).then(_ => insertQuery(db, 'decks_store', fields, data))
+  return Promise
+    .all(increments)
+    .then(_ => {
+      return db('decks_store')
+        .insert(data)
+        .returning(fields)
+        .then(head)
+    })
 }
 
 module.exports = acceptOrder

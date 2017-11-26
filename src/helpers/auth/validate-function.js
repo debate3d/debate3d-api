@@ -1,10 +1,12 @@
-const { selectWhere } = require('../database')
-const tables = require('../tables')
 const { isEmpty } = require('lodash')
+const db = require('../../../db')
 
 module.exports = function (decodedToken, request, fn) {
   const user = decodedToken.uid
-  return selectWhere(tables.users(), ['uid'], { uid: user })
+
+  return db('users')
+    .select(['uid'])
+    .where({ uid: user })
     .first()
     .then(obj => {
       if (!isEmpty(obj)) {

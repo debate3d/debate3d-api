@@ -1,4 +1,3 @@
-const { countField } = require('../../../helpers/database')
 const { head, toInteger } = require('lodash')
 
 const hasCards = countObj => toInteger(countObj.count) !== 0
@@ -8,5 +7,10 @@ module.exports = (db, uid_author, uid_topic) => {
     uid_author,
     uid_topic
   }
-  return countField(db('cards'), 'uid', condition).then(head).then(hasCards)
+
+  return db('cards')
+    .where(condition)
+    .count('uid')
+    .then(head)
+    .then(hasCards)
 }

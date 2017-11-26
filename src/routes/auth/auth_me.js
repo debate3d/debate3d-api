@@ -1,13 +1,15 @@
 const { routeErrorHandler } = require('../../helpers/bugnag')
-const tables = require('../../helpers/tables')
-const { selectWhere } = require('../../helpers/database')
+const db = require('../../../db')
 
 const auth_me = {
   method: 'GET',
   path: '/auth/me',
   handler (request, reply) {
     const credentials = request.auth.credentials
-    return selectWhere(tables.users(), '*', { uid: credentials.uid })
+
+    return db('users')
+      .select('*')
+      .where({ uid: credentials.uid })
       .then(row => {
         const user = Object.assign({}, row[0])
         user.password = null

@@ -13,7 +13,7 @@ module.exports = (request) => {
         db,
         dataLoader: factoryDataLoader(db),
         $loadUser: (fn) => {
-          const result = $loadUser(token)
+          const result = $loadUser(db, token)
           if (isFunction(fn)) {
             return result.then(fn)
           }

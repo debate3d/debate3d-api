@@ -1,11 +1,8 @@
-const { updateQuery } = require('../../../helpers/database')
+const { head } = require('lodash')
 
 const { returnFields } = require('../../../helpers/common')
-
 const { incrementUser } = require('../../user')
-
 const incrementCard = require('../increment-card')
-
 const {
   USER,
   CARD
@@ -26,7 +23,15 @@ const acceptOrder = (data, db, uidAuthorCard) => {
 
   const { id } = data
 
-  return Promise.all(increments).then(_ => updateQuery(db, 'reactions_users', fields, { id }, data))
+  return Promise
+    .all(increments)
+    .then(_ => {
+      return db('reactions_users')
+        .update(data)
+        .where({ id })
+        .returning(fields)
+        .then(head)
+    })
 }
 
 module.exports = acceptOrder

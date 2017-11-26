@@ -1,5 +1,7 @@
-const { decrement } = require('../../helpers/database')
-
 module.exports = (db, uid, ponts) => {
-  return decrement(db('users'), 'ponts', { uid }, ponts)
+  const condition = { uid }
+
+  return db('users')
+    .decrement('ponts', ponts)
+    .where(condition)
 }

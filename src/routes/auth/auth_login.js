@@ -1,10 +1,9 @@
 const Boom = require('boom')
 const Bcrypt = require('bcrypt')
 const Joi = require('joi')
+const db = require('../../../db')
 
 const { routeErrorHandler } = require('../../helpers/bugnag')
-const tables = require('../../helpers/tables')
-const { selectWhere } = require('../../helpers/database')
 const { createToken } = require('../../helpers/auth')
 
 const auth_register = {
@@ -12,7 +11,10 @@ const auth_register = {
   path: '/auth/login',
   handler (request, reply) {
     const { email, password } = request.payload
-    return selectWhere(tables.users(), ['uid', 'email', 'password'], { email })
+
+    return db('users')
+      .select(['uid', 'email', 'password'])
+      .where({ email })
       .then(rows => {
         if (rows.length === 1) {
           const user = rows[0]

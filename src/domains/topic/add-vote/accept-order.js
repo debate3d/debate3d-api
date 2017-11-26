@@ -1,4 +1,4 @@
-const { insertQuery } = require('../../../helpers/database')
+const { head } = require('lodash')
 
 const { returnFields } = require('../../../helpers/common')
 
@@ -24,7 +24,15 @@ const acceptOrder = (data, db, uidAuthorCard) => {
   } else {
     increments.push(decrementUser(db, uidAuthorCard, USER.RECEIVE_DISLIKE))
   }
-  return Promise.all(increments).then(_ => insertQuery(db, 'votes_topic', fields, data))
+
+  return Promise
+    .all(increments)
+    .then(_ => {
+      return db('votes_topic')
+        .insert(data)
+        .returning(fields)
+        .then(head)
+    })
 }
 
 module.exports = acceptOrder

@@ -1,10 +1,16 @@
-const { countField, hasEntity } = require('../../../helpers/database')
-const { head } = require('lodash')
+const { head, toInteger } = require('lodash')
+
+const hasEntity = countObj => toInteger(countObj.count) !== 0
 
 module.exports = (db, uid_user, uid_topic) => {
   const condition = {
     uid_user,
     uid_topic
   }
-  return countField(db('votes_topic'), 'id', condition).then(head).then(hasEntity)
+
+  return db('votes_topic')
+    .where(condition)
+    .count('id')
+    .then(head)
+    .then(hasEntity)
 }
