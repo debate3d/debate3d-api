@@ -1,4 +1,4 @@
-const { last, tail, reverse, includes } = require('lodash')
+const { last, tail, reverse, includes, isEmpty } = require('lodash')
 const cloudinary = require('cloudinary')
 const configCloudinary = require('../../../../config/cloudnary')
 cloudinary.config(configCloudinary)
@@ -21,6 +21,9 @@ const getPublicId = url_image => {
 }
 
 module.exports = url_image => {
+  if (isEmpty(url_image)) {
+    return
+  }
   const publicId = getPublicId(url_image)
   return cloudinary.v2.uploader.destroy(publicId, getInfos)
 }
