@@ -20,7 +20,6 @@ const auth_register = {
           const salt = Bcrypt.genSaltSync(10)
           const hash = Bcrypt.hashSync(password, salt)
           const user = factoryUser({ password: hash, email, name, nickname })
-          console.log(user)
           return db('users')
             .insert(user)
             .returning('uid')
