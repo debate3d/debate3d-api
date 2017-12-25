@@ -7,6 +7,7 @@ const factoryTopic = require('./factory')
 const { USER } = require('../../../../config/pontuation')
 const insertTopic = require('./insert-topic')
 const deleteImage = require('../update-topic/delete-images')
+const checkNicknameIfExists = require('./check-nickname-if-exists')
 
 const { graphqlErrorHandler } = require('../../../helpers/bugnag')
 
@@ -15,7 +16,8 @@ const createTopic = (data, db) => {
   const dataToInsert = omit(data, 'tag')
   const topic = factoryTopic(dataToInsert)
   const fields = returnFields([], topic)
-  return incrementUser(db, data.uid_author, USER.CREATE_TOPIC)
+  return checkNicknameIfExists(db, topic.nickname)
+    .then(() => incrementUser(db, data.uid_author, USER.CREATE_TOPIC))
     .then(() => updateModerator(db, data.uid_author))
     .then(() => insertTopic(db, fields, topic))
     .then(relationWithTags(db, tags))

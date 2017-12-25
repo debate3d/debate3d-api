@@ -4,8 +4,7 @@ bugsnag.register(process.env.BUGSNAG_KEY)
 
 const graphqlErrorHandler = err => {
   bugsnag.notify(err)
-  console.error(err)
-  return Promise.reject(err)
+  return err
 }
 
 module.exports = graphqlErrorHandler
