@@ -5,6 +5,10 @@ Todas as anotações do projeto estarão neste documento
 O formato é baseado em [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2017-12-25
++ Corrigido bug quando a url_image do tema está vazia e se não se torna necessário apagar a imagem do cloudinary
++ Adicionado função para saber se há um nickname registrado para um tema antes de salvar
+
 ## [2.0.0] - 2017-11-26
 + Terminado versão 2.0.0 da plataforma: versão estável
 
