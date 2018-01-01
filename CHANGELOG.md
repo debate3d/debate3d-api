@@ -5,6 +5,10 @@ Todas as anotações do projeto estarão neste documento
 O formato é baseado em [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2018-01-01
++ Adicionado as flags `has_video` e `url_video` na entidade card
++ Adicionado a flag `is_private` na entidade tópico
+
 ## [2.1.0] - 2017-12-25
 + Corrigido bug quando a url_image do tema está vazia e se não se torna necessário apagar a imagem do cloudinary
 + Adicionado função para saber se há um nickname registrado para um tema antes de salvar
