@@ -9,6 +9,7 @@ type Topic {
   created: Timestamp!
   author: User!
   ponts: Int
+  is_private: Boolean!
   category: Category!
   votes_topic: AllVotes!
   position: Position!

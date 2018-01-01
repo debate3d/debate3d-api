@@ -6,6 +6,8 @@ type Card {
   content: String!
   created: Timestamp!
   edited: Boolean!
+  has_video: Boolean!
+  url_video: String
   ponts: Int!
   author: User
   topic: Topic

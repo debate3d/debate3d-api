@@ -1,3 +1,8 @@
-const bestTopic = (root, args, { db }) => db('topics').orderBy('ponts', 'desc').first()
+const bestTopic = (root, args, { db }) => {
+  return db('topics')
+    .where('is_private', false)
+    .orderBy('ponts', 'desc')
+    .first()
+}
 
 module.exports = bestTopic

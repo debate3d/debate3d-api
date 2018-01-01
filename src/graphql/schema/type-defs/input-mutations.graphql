@@ -2,6 +2,8 @@ input InputToCreateCard {
   uid_topic: String!
   content: String!
   position: Boolean!
+  has_video: Boolean!
+  url_video: String
 }
 
 input InputToCreateTopic {
@@ -10,6 +12,7 @@ input InputToCreateTopic {
   content: String!
   tag: [ String! ]!
   url_image: String!
+  is_private: Boolean!
 }
 
 input InputToEditTopic {

@@ -8,6 +8,7 @@ module.exports = (root, { db }, context) => {
 
   return db('cards')
     .select('uid_topic')
+    .where('is_private', false)
     .groupBy('uid_topic')
     .orderByRaw(`count('uid_topic') desc`)
     .offset(offset)

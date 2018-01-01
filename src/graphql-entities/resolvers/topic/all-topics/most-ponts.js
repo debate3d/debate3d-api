@@ -7,6 +7,7 @@ module.exports = (root, { db }, context) => {
 
   return db('topics')
     .select('*')
+    .where('is_private', false)
     .orderBy('ponts', 'desc')
     .offset(offset)
     .limit(LIMIT)

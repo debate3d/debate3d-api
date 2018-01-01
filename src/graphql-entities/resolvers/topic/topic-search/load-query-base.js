@@ -10,12 +10,13 @@ const loadQueryBase = (db, filter) => {
   const isEqual = filter.is_equal || false
   const { title, nickname } = filter
 
-  const query = db('topics')
+  const query = db('topics').where('is_private', false)
 
   if (isEqual) {
     const conditions = pickBy({ title, nickname }, identity)
 
-    return query.where(conditions)
+    return query
+      .where(conditions)
   }
 
   return isEmpty(title)
