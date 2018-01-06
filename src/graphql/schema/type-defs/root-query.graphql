@@ -1,4 +1,6 @@
 type RootQuery {
+  version: String!
+
   card(uid: String!): Card!
 
   users: AllUsers!
