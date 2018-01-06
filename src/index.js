@@ -1,5 +1,10 @@
 'use strict'
 
+const debug = require('debug')
+
+// Debug knex querys
+debug('knex')
+
 /*
  * Import modules
  * @private Hapi - HapiJS module
