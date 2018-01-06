@@ -1,4 +1,4 @@
-const { has, keys, size } = require('lodash')
+const { has, keys, size, isEmpty } = require('lodash')
 
 const user = (root, args, { db, dataLoader }) => {
   if (size(keys(args)) > 1) {
@@ -6,6 +6,9 @@ const user = (root, args, { db, dataLoader }) => {
   }
   if (size(keys(args)) > 1) {
     return Promise.reject(new Error('É esperado um parametro'))
+  }
+  if (isEmpty(args.uid) && isEmpty(args.nickname)) {
+    return {}
   }
   if (has(args, 'nickname')) {
     return db('users')
@@ -15,7 +18,7 @@ const user = (root, args, { db, dataLoader }) => {
   if (has(args, 'uid')) {
     return dataLoader.users.load(args.uid)
   }
-  return null
+  return {}
 }
 
 module.exports = user

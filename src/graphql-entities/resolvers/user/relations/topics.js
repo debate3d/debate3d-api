@@ -1,8 +1,10 @@
-const { merge } = require('lodash')
+const { merge, isEmpty } = require('lodash')
 
 module.exports = (root, args, context) => {
+  if (isEmpty(root)) return {}
+
   return {
     args,
-    root: merge(root, { key: 'uid_topic' })
+    root: merge(root, { key: 'uid_topic', not_private_topics: true })
   }
 }

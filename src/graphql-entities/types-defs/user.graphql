@@ -20,10 +20,22 @@ type User {
   is_moderator: Boolean
   is_verified: Boolean
   is_moderator_verified: Boolean
-  votes: [ Vote ]
+
+  # relations
+  # cards without link with private topics
   cards(page: Int!): AllCards!
-  reactions: [ Reaction ]
+
+  # all cards ignoring private topics
+  me_cards(page: Int!): AllCards!
+
+  # topics without link with private topics
   topics(page: Int!): TopicsByUser!
+
+  # all topics ignoring private topics
+  me_topics(page: Int!): TopicsByUser!
+
+  votes: [ Vote ]
+  reactions: [ Reaction ]
   deck: [ Deck ]
 }
 

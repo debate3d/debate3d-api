@@ -5,6 +5,6 @@ module.exports = (root, args, context) => {
 
   return {
     args,
-    root: merge(root, { key: 'uid_author', not_private_topics: true })
+    root: merge(root, { key: 'uid_author', not_private_topics: false })
   }
 }
