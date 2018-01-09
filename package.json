@@ -3,6 +3,7 @@
   "version": "2.3.0",
   "description": "An debate3d api build with HapiJS and PostgreSQL Database",
   "engines": {
+    "node": "7.8.0",
     "npm": "4.6.1"
   },
   "main": "src/index.js",
