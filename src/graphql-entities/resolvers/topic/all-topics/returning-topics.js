@@ -2,7 +2,8 @@ const { curry } = require('ramda')
 
 /**
  * returning all topics
- * @param  {Array} result
+ * @param  {KneInstance} db
+ * @param  {Array}       result
  * @return {Promise}
  */
 const returningTopics = (db, result) => {
