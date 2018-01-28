@@ -5,6 +5,9 @@ Todas as anotações do projeto estarão neste documento
 O formato é baseado em [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] - 2018-01-28
++ Corrigido erro em `topics` resolvers
+
 ## [2.3.0] - 2018-01-06
 +  Atualizado resolvers para se adequarem a existência de temas privados. Sendo assim, nos resolvers de cards e tópicos no tipo usuário, se lista somente cards que não pertencem a um tema privado, e se lista somente temas públicos. Somente nos resolvers `me_topics` e `me_cards` se ignora essa possibilidade.
 + Prevenção de erros quando o *front* envia `uid` e `nickname` inválidos.
