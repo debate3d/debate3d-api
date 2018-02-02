@@ -2,7 +2,6 @@ const { formatErrorGenerator } = require('graphql-apollo-errors')
 const { reportError } = require('../../helpers/bugnag')
 
 const formatErrorOptions = {
-  publicDataPath: 'public',
   showLocations: true,
   showPath: true,
   hideSensitiveData: false,
