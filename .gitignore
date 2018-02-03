@@ -1,3 +1,4 @@
 node_modules/
 .env
 config/key.json
+config/firebase-admin.json
