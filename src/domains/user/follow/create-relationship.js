@@ -1,8 +1,8 @@
-const { isEmtpy } = require('lodash')
+const { isEmpty } = require('lodash')
 const { curry } = require('ramda')
 
 const createRelationship = (db, data, relationship) => {
-  if (isEmtpy(relationship)) {
+  if (isEmpty(relationship)) {
     return db('moderators_followers')
       .insert(data)
       .returning('id')
@@ -11,12 +11,12 @@ const createRelationship = (db, data, relationship) => {
   if (relationship.deleted) {
     return db('moderators_followers')
       .update({ deleted: false })
-      .returning('ids')
+      .returning('id')
   }
 
   return db('moderators_followers')
     .update({ deleted: true })
-    .returning('ids')
+    .returning('id')
 }
 
 module.exports = curry(createRelationship)
