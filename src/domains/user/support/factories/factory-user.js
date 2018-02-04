@@ -31,7 +31,8 @@ module.exports = data => {
     is_moderator: false,
     is_moderator_verified: false,
     subscriber: false,
-    is_debater: false
+    is_debater: false,
+    token_device: null
   }
 
   return defaultsDeep({ }, common, user)
