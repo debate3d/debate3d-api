@@ -36,3 +36,8 @@ input InputToUpdateTokenDevice {
   uid: String!
   token_device: String!
 }
+
+input InputToFollowerModerator {
+  uid_moderator: String!
+  uid_user: String!
+}

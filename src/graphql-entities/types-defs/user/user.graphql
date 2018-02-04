@@ -35,6 +35,12 @@ type User {
   # all topics ignoring private topics
   me_topics(page: Int!): TopicsByUser!
 
+  moderators_followed: [ FollowModerator! ]
+
+  topics_followed: [ FollowTopic! ]
+
+  followers: [ FollowModerator! ]
+
   votes: [ Vote ]
   reactions: [ Reaction ]
   deck: [ Deck ]
@@ -43,6 +49,12 @@ type User {
 type TopicsByUser {
   count: Int!
   records: [ Topic ]!
+}
+
+type FollowModerator {
+  uid_moderator: String!
+  uid_user: String!
+  deleted: Boolean
 }
 
 type AllUsers {

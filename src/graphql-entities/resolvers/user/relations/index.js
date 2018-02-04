@@ -6,6 +6,9 @@ const votes = require('./votes')
 const ponts = require('./ponts')
 const me_cards = require('./me-cards')
 const me_topics = require('./me-topics')
+const followers = require('./followers')
+const moderators_followed = require('./moderators-followed')
+const topics_followed = require('./topics-followed')
 
 module.exports = {
   deck,
@@ -15,5 +18,8 @@ module.exports = {
   topics,
   me_cards,
   me_topics,
-  reactions
+  followers,
+  reactions,
+  topics_followed,
+  moderators_followed
 }

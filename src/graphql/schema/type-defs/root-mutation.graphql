@@ -6,6 +6,7 @@ type RootMutation {
   UpdateUserToSubscriber(data: InputToUpdateUserToSubscriber!): [ String! ]
   MarkUserToVerified(data: InputToUpdateUser!): Boolean
   UpdateUserTokenDevice (data: InputToUpdateTokenDevice!): Boolean
+  FollowModerator (data: InputToFollowerModerator!): Boolean
 
   # card
   InsertCard(data: InputToCreateCard!): Card!
@@ -19,4 +20,5 @@ type RootMutation {
   InsertTopic(data: InputToCreateTopic!): Topic!
   VoteTopic(data: InputToVoteTopic!): Vote!
   UpdateTopic (data: InputToEditTopic!): Boolean
+  FollowTopic (data: InputToFollowTopic!): Boolean
 }

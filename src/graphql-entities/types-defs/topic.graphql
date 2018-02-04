@@ -15,6 +15,7 @@ type Topic {
   position: Position!
   cards(page: Int!): AllCards!
   tags: [ Tag! ]!
+  followers: [ FollowTopic! ]
 }
 
 type topicSearch {
@@ -28,9 +29,20 @@ input InputTopicFilter {
   is_equal: Boolean
 }
 
+type FollowTopic {
+  uid_topic: String!
+  uid_user: String!
+  deleted: Boolean!
+}
+
 type AllTopics {
   count: String!
   mostVoted(page: Int!): [ Topic! ]!
   mostCards(page: Int!): [ Topic! ]!
   mostPonts(page: Int!): [ Topic! ]!
+}
+
+input InputToFollowTopic {
+  uid_topic: String!
+  uid_user: String!
 }
