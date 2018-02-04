@@ -20,6 +20,7 @@ type User {
   is_moderator: Boolean
   is_verified: Boolean
   is_moderator_verified: Boolean
+  token_device: String # token for enable and send push notifications
 
   # relations
   # cards without link with private topics
