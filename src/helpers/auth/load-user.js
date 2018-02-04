@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const { SevenBoom } = require('graphql-apollo-errors')
 const { isEmpty, omit } = require('lodash')
 
 module.exports = (db, token) => {
@@ -14,11 +15,9 @@ module.exports = (db, token) => {
           return omit(obj, ['password'])
         }
 
-        return Promise.reject(new Error('Token inválido'))
+        return Promise.reject(SevenBoom.unauthorized('Usuário inválido', { token }, 'USER_NOT_FOUND'))
       })
   } catch (err) {
-    console.error(err)
-
-    return Promise.reject(new Error('Token inválido'))
+    return Promise.reject(SevenBoom.unauthorized('Usuário inválido', { token }, 'USER_NOT_FOUND'))
   }
 }

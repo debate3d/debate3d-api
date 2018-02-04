@@ -1,4 +1,4 @@
-const performCreate = require('../../domains/user/update-user')
+const performCreate = require('../../../domains/user/update-user')
 const { merge } = require('lodash')
 
 module.exports = (root, { data }, { $loadUser, db, dataLoader }) => {

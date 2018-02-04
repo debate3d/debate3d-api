@@ -34,6 +34,7 @@
     "good-console": "^6.4.0",
     "good-squeeze": "^5.0.2",
     "graphql": "^0.10.3",
+    "graphql-apollo-errors": "^2.0.3",
     "graphql-moment": "^0.0.2",
     "graphql-server-hapi": "^1.0.0",
     "graphql-tools": "^1.1.0",

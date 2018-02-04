@@ -3,5 +3,5 @@ const usersGraphql = require('./user')
 
 module.exports = [
   ...usersGraphql,
-  loadGraphQLFiles(__dirname)
+  ...loadGraphQLFiles(__dirname)
 ]

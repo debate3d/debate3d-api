@@ -1,4 +1,4 @@
-const performUpdate = require('../../domains/topic/update-topic')
+const performUpdate = require('../../../domains/topic/update-topic')
 
 module.exports = (root, { data }, { $loadUser, db }) => {
   return $loadUser(user => {

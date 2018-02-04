@@ -1,4 +1,4 @@
-const performCreate = require('../../domains/card/add-deck')
+const performCreate = require('../../../domains/card/add-deck')
 const { merge } = require('lodash')
 
 module.exports = (root, { data }, context) => {
