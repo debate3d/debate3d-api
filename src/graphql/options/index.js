@@ -1,12 +1,13 @@
-const schema = require('./schema')
-const db = require('../../db')
-const { $loadUser } = require('../helpers/auth')
+const schema = require('../schema')
+const db = require('../../../db')
+const { $loadUser } = require('../../helpers/auth')
 const { isFunction } = require('lodash')
-const factoryDataLoader = require('../dataLoader')
+const factoryDataLoader = require('../../dataLoader')
+const formatError = require('./format-error')
 
-module.exports = (request) => {
+module.exports = req => {
   return new Promise((resolve, reject) => {
-    const token = request.headers['authorization']
+    const token = req.headers['authorization']
     return resolve({
       schema,
       context: {
@@ -19,7 +20,8 @@ module.exports = (request) => {
           }
           return result
         }
-      }
+      },
+      formatError
     })
   })
 }

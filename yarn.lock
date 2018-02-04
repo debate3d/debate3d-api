@@ -358,7 +358,7 @@ boom@4.2.x:
   dependencies:
     hoek "4.x.x"
 
-boom@4.x.x:
+boom@4.x.x, boom@^4.2.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/boom/-/boom-4.3.1.tgz#4f8a3005cb4a7e3889f749030fd25b96e01d2e31"
   dependencies:
@@ -1276,6 +1276,14 @@ graphql:
   dependencies:
     iterall "^1.1.0"
 
+graphql-apollo-errors@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/graphql-apollo-errors/-/graphql-apollo-errors-2.0.3.tgz#c4e0c605e0581a9514b3d3e03218328f2c4700bb"
+  dependencies:
+    lodash "^4.17.4"
+    minilog "^3.1.0"
+    seven-boom "^1.0.3"
+
 graphql-moment@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/graphql-moment/-/graphql-moment-0.0.2.tgz#1e6ac9479a5e21144bc7eff1d707cede50a8b9ee"
@@ -2023,6 +2031,10 @@ methmeth@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/methmeth/-/methmeth-1.1.0.tgz#e80a26618e52f5c4222861bb748510bd10e29089"
 
+microee@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/microee/-/microee-0.0.6.tgz#a12bdb0103681e8b126a9b071eba4c467c78fffe"
+
 micromatch@^2.1.5, micromatch@^2.3.7:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
@@ -2079,6 +2091,12 @@ mimos@3.x.x:
   dependencies:
     hoek "4.x.x"
     mime-db "1.x.x"
+
+minilog@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/minilog/-/minilog-3.1.0.tgz#d2d0f1887ca363d1acf0ea86d5c4df293b3fb675"
+  dependencies:
+    microee "0.0.6"
 
 minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
@@ -2884,6 +2902,14 @@ set-blocking@~2.0.0:
 set-immediate-shim@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz#4b2b1b27eb808a9f8dcc481a58e5e56f599f3f61"
+
+seven-boom@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/seven-boom/-/seven-boom-1.0.3.tgz#433038cd5f9e491607c374d3a23934be02e44473"
+  dependencies:
+    boom "^4.2.0"
+    lodash "^4.17.4"
+    uuid "^3.0.1"
 
 shot@3.x.x:
   version "3.4.2"
