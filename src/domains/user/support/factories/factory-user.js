@@ -32,7 +32,7 @@ module.exports = data => {
     is_moderator_verified: false,
     subscriber: false,
     is_debater: false,
-    token_device: null
+    token_devices: null
   }
 
   return defaultsDeep({ }, common, user)
