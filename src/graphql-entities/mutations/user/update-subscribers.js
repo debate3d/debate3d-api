@@ -1,7 +1,7 @@
-const performUpdate = require('../../domains/user/update-subscriber')
+const performUpdate = require('../../../domains/user/update-subscriber')
 const { isEqual } = require('lodash')
 
-const { graphqlErrorHandler } = require('../../helpers/bugnag')
+const { graphqlErrorHandler } = require('../../../helpers/bugnag')
 
 const isAdministrator = user => isEqual(user.administrator, true)
   ? Promise.resolve(user)

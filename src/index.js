@@ -1,6 +1,7 @@
 'use strict'
 
 const debug = require('debug')
+const generateFirebaseAdminConfig = require('../config/generate-firebase-admin')
 
 // Debug knex querys
 debug('knex')
@@ -13,6 +14,7 @@ const Hapi = require('hapi')
 const APP_VERSION = require('../package.json').version
 
 require('dotenv').config()
+generateFirebaseAdminConfig()
 
 /*
  * Creating a server and connection to him

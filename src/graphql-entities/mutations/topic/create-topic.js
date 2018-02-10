@@ -1,4 +1,4 @@
-const performCreate = require('../../domains/topic/create-topic')
+const performCreate = require('../../../domains/topic/create-topic')
 const { merge } = require('lodash')
 
 module.exports = (root, { data }, context) => {

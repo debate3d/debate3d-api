@@ -1,4 +1,4 @@
-const performCreate = require('../../domains/user/create-subscriber')
+const performCreate = require('../../../domains/user/create-subscriber')
 const { merge } = require('lodash')
 
 module.exports = (root, { data }, context) => {

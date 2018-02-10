@@ -1,16 +1,24 @@
 type RootMutation {
+  # user
   LoginFacebook(data: InputToLoginFacebook!): TokenObject!
-  InsertCard(data: InputToCreateCard!): Card!
-  InsertTopic(data: InputToCreateTopic!): Topic!
-  AddReaction(data: InputToAddReaction!): Reaction!
-  AddDeck(data: InputToAddDeck!): Deck!
-  VoteTopic(data: InputToVoteTopic!): Vote!
-  UpdateContent(data: InputToUpdateCard!): Card!
   UpdateUser(data: InputToUpdateUser!): User!
-  UpdateReaction(data: InputToUpdateReaction!): Reaction!
-  UpdateDeck(data: InputToUpdateDeck!): String
   CreateSubscriber(data: InputToSubscriber!): Boolean!
   UpdateUserToSubscriber(data: InputToUpdateUserToSubscriber!): [ String! ]
   MarkUserToVerified(data: InputToUpdateUser!): Boolean
+  UpdateUserTokenDevice (data: InputToUpdateTokenDevice!): Boolean
+  FollowModerator (data: InputToFollowerModerator!): Boolean
+
+  # card
+  InsertCard(data: InputToCreateCard!): Boolean!
+  AddReaction(data: InputToAddReaction!): Reaction!
+  AddDeck(data: InputToAddDeck!): Deck!
+  UpdateContent(data: InputToUpdateCard!): Card!
+  UpdateReaction(data: InputToUpdateReaction!): Reaction!
+  UpdateDeck(data: InputToUpdateDeck!): String
+
+  # topic
+  InsertTopic(data: InputToCreateTopic!): Boolean!
+  VoteTopic(data: InputToVoteTopic!): Vote!
   UpdateTopic (data: InputToEditTopic!): Boolean
+  FollowTopic (data: InputToFollowTopic!): Boolean
 }

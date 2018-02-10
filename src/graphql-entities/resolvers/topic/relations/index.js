@@ -5,13 +5,15 @@ const cards = require('./cards')
 const category = require('./category')
 const tags = require('./tags')
 const ponts = require('./ponts')
+const followers = require('./followers')
 
 module.exports = {
-  author,
-  votes_topic,
-  position,
-  cards,
-  category,
   tags,
-  ponts
+  ponts,
+  cards,
+  author,
+  category,
+  position,
+  followers,
+  votes_topic
 }

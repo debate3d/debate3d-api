@@ -40,20 +40,6 @@ input InputToUpdateCard {
   content: String!
 }
 
-input InputToUpdateUser {
-  name: String
-  nickname: String
-  cpf: String
-  cep: String
-  facebook: String
-  twitter: String
-  instagram: String
-  site: String
-  youtube: String
-  avatar_id: String
-  banner_url: String
-}
-
 input InputToUpdateReaction {
   id: ID!
   reaction: Boolean!
@@ -63,24 +49,4 @@ input InputToUpdateReaction {
 input InputToUpdateDeck {
   id: ID!
   uid_card: String!
-}
-
-input InputToLoginFacebook {
-  id: String!
-  email: String!
-  name: String!
-}
-
-input InputToSubscriber {
-  cupom: String!
-}
-
-input UserToSubscriber {
-  uid: String!
-  email: String!
-}
-
-input InputToUpdateUserToSubscriber {
-  users: [ UserToSubscriber! ]!
-  subscriber: Boolean!
 }
