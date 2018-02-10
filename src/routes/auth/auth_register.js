@@ -4,6 +4,7 @@ const Joi = require('joi')
 const { isEmpty } = require('lodash')
 const { head } = require('ramda')
 
+const sendWelcomeEmail = require('../../domains/user/support/helpers/send-welcome-email')
 const { routeErrorHandler } = require('../../helpers/bugnag')
 const { factoryUser } = require('../../domains/user/support/factories')
 const db = require('../../../db')
@@ -14,24 +15,31 @@ const auth_register = {
   path: '/auth/users',
   handler ({ payload }, reply) {
     const { email, password, name, nickname } = payload
-    return db('users').where({ email })
-      .then(rows => {
-        if (isEmpty(rows)) {
-          const salt = Bcrypt.genSaltSync(10)
-          const hash = Bcrypt.hashSync(password, salt)
-          const user = factoryUser({ password: hash, email, name, nickname })
-          return db('users')
-            .insert(user)
-            .returning('uid')
-            .then(head)
-            .then(uid => reply.returnToken(createToken({ uid })))
-            .catch(err => {
-              routeErrorHandler(err, 'badImplementation', reply)
-            })
-        }
-        const msgErr = `O email ${email} já está cadastrado no banco de dados`
-        return reply(Boom.unauthorized(msgErr))
-      })
+    return db.transaction(trx => {
+      return db('users').where({ email })
+        .then(rows => {
+          if (isEmpty(rows)) {
+            const salt = Bcrypt.genSaltSync(10)
+            const hash = Bcrypt.hashSync(password, salt)
+            const user = factoryUser({ password: hash, email, name, nickname })
+            return db('users')
+              .insert(user)
+              .returning('*')
+              .then(head)
+              .then(user => {
+                return sendWelcomeEmail(user)
+                  .then(() => reply.returnToken(createToken({ uid: user.uid })))
+              })
+              .catch(err => {
+                routeErrorHandler(err, 'badImplementation', reply)
+              })
+          }
+          const msgErr = `O email ${email} já está cadastrado no banco de dados`
+          return reply(Boom.unauthorized(msgErr))
+        })
+        .then(trx.commit)
+        .catch(trx.rollback)
+    })
       .catch(err => {
         routeErrorHandler(err, 'badImplementation', reply)
       })
