@@ -9,7 +9,7 @@ type RootMutation {
   FollowModerator (data: InputToFollowerModerator!): Boolean
 
   # card
-  InsertCard(data: InputToCreateCard!): Card!
+  InsertCard(data: InputToCreateCard!): Boolean!
   AddReaction(data: InputToAddReaction!): Reaction!
   AddDeck(data: InputToAddDeck!): Deck!
   UpdateContent(data: InputToUpdateCard!): Card!

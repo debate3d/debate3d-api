@@ -8,7 +8,6 @@ const admin = require('../../admin')
  * @return {Promise}
  */
 const sendMessage = (tokens, payload, options = {}) => {
-  console.log(tokens)
   return admin
     .messaging()
     .sendToDevice(tokens, payload)
