@@ -1,3 +1,6 @@
+const { curry } = require('ramda')
+const { map } = require('lodash')
+
 /**
  * @method loadTokenDevicesByUser
  * @param  {KnexInstance}  db
@@ -8,6 +11,7 @@ const loadTokenDevicesByUser = (db, uuids) => {
   return db('users')
     .select('token_devices')
     .whereIn('uid', uuids)
+    .then(rows => map(rows, 'token_devices'))
 }
 
-module.exports = loadTokenDevicesByUser
+module.exports = curry(loadTokenDevicesByUser)

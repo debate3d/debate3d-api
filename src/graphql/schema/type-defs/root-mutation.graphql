@@ -17,7 +17,7 @@ type RootMutation {
   UpdateDeck(data: InputToUpdateDeck!): String
 
   # topic
-  InsertTopic(data: InputToCreateTopic!): Topic!
+  InsertTopic(data: InputToCreateTopic!): Boolean!
   VoteTopic(data: InputToVoteTopic!): Vote!
   UpdateTopic (data: InputToEditTopic!): Boolean
   FollowTopic (data: InputToFollowTopic!): Boolean

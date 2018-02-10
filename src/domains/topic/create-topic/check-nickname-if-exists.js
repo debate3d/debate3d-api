@@ -1,8 +1,8 @@
 const { isEmpty } = require('ramda')
+const { SevenBoom } = require('graphql-apollo-errors')
 
 const checkIfExists = boolean => {
-  const error = new Error('Este tema já existe')
-  return boolean ? Promise.resolve(true) : Promise.reject(error)
+  return boolean ? Promise.resolve(true) : SevenBoom.badRequest('Este tema já existe')
 }
 
 const checkNicknameIfExists = (db, nickname) => {
