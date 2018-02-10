@@ -1,5 +1,6 @@
 const Boom = require('boom')
 const bugsnag = require('bugsnag')
+const { isProduction } = require('../common')
 
 bugsnag.register(process.env.BUGSNAG_KEY)
 
@@ -11,7 +12,9 @@ bugsnag.register(process.env.BUGSNAG_KEY)
  * @return {Any}
  */
 const routeErrorHandler = (err, type, reply) => {
-  bugsnag.notify(err)
+  if (isProduction(process.env)) {
+    bugsnag.notify(err)
+  }
   console.error(err)
   return reply(Boom[type](err.message))
 }
