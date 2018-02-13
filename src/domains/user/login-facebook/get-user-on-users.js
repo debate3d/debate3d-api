@@ -3,6 +3,7 @@ const { curry, head } = require('ramda')
 
 const ifExists = require('./if-exists')
 const { factoryUser } = require('../support/factories')
+const sendWelcomeEmail = require('../../sendgrid/client')
 
 /**
  * create user or return the Object
@@ -11,10 +12,13 @@ const { factoryUser } = require('../support/factories')
  * @param  {Object} result
  * @return {Promise}
  */
-const createOrReturnObject = curry((db, data, result) => isEmpty(result)
-  ? createUser(db, data)
-  : Promise.resolve(result)
-)
+const createOrReturnObject = curry((db, data, result) => {
+  if (isEmpty(result)) {
+    return createUser(db, data)
+      .then(sendWelcomeEmail)
+  }
+  return Promise.resolve(result)
+})
 
 /**
  * create user and return uid
@@ -24,9 +28,10 @@ const createOrReturnObject = curry((db, data, result) => isEmpty(result)
  */
 const createUser = (db, data) => {
   const user = factoryUser(data)
-  return db('users').insert(user).returning('uid')
+  return db('users')
+    .insert(user)
+    .returning('*')
     .then(head)
-    .then(uid => Promise.resolve({ uid }))
 }
 
 /**
