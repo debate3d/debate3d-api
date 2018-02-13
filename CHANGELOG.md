@@ -5,6 +5,11 @@ Todas as anotações do projeto estarão neste documento
 O formato é baseado em [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2018-02-13
++ Adicionado lógica para enviar e-mails
++ Adicionado lógica para envio de notificações
++ Adicionado lógica para seguir um moderador e / ou tema
+
 ## [2.4.0] - 2018-01-28
 + Corrigido erro em `topics` resolvers
 
