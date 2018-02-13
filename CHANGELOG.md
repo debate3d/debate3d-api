@@ -5,6 +5,9 @@ Todas as anotações do projeto estarão neste documento
 O formato é baseado em [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.2] - 2018-02-13
++ Corrigido problema com variável de ambiente do firebase em produção
+
 ## [3.0.1] - 2018-02-13
 + Corrigido problema com os pacotes nodemailer e a versão do Node
 
