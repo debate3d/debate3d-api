@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "An debate3d api build with HapiJS and PostgreSQL Database",
   "engines": {
-    "node": "7.8.0",
+    "node": ">=8.0.0",
     "npm": "4.6.1"
   },
   "main": "src/index.js",
@@ -46,6 +46,8 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "node-uuid": "^1.4.8",
+    "nodemailer": "^4.4.2",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemon": "^1.11.0",
     "pg": "^6.2.4",
     "ramda": "^0.24.1"
