@@ -55,6 +55,8 @@ type FollowModerator {
   uid_moderator: String!
   uid_user: String!
   deleted: Boolean
+
+  moderator: User
 }
 
 type AllUsers {

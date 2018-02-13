@@ -33,6 +33,8 @@ type FollowTopic {
   uid_topic: String!
   uid_user: String!
   deleted: Boolean!
+
+  topic: Topic
 }
 
 type AllTopics {

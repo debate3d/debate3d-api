@@ -12,11 +12,15 @@ const createRelationship = (db, data, relationship) => {
   if (relationship.deleted) {
     return db('topics_followers')
       .update({ deleted: false })
+      .where('uid_topic', data.uid_topic)
+      .where('uid_user', data.uid_user)
       .returning('id')
   }
 
   return db('topics_followers')
     .update({ deleted: true })
+    .where('uid_topic', data.uid_topic)
+    .where('uid_user', data.uid_user)
     .returning('id')
 }
 

@@ -7,6 +7,7 @@ const AllCards = require('../all-cards')
 const TopicsByUser = require('./topics-by-user')
 const UserStats = require('./user-stats')
 const userSearch = require('./user-search')
+const FollowModerator = require('./follow-moderator')
 
 module.exports = {
   RootQuery,
@@ -17,5 +18,6 @@ module.exports = {
   AllCards,
   TopicsByUser,
   UserStats,
-  userSearch
+  userSearch,
+  FollowModerator
 }
