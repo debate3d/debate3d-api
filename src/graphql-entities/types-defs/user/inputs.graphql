@@ -41,3 +41,13 @@ input InputToFollowerModerator {
   uid_moderator: String!
   uid_user: String!
 }
+
+input InputToPasswordRecovery {
+  email: String!
+}
+
+input InputToPasswordRecoveryConfirm {
+  token: String!
+  password: String!
+  password_again: String!
+}

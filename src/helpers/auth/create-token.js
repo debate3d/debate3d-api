@@ -10,7 +10,4 @@ const options = {
  * + uid: user identification
  * + email: user email
 */
-module.exports = user => {
-  return jwt
-    .sign(user, process.env.API_KEY, options)
-}
+module.exports = user => jwt.sign(user, process.env.API_KEY, options)

@@ -7,6 +7,8 @@ type RootMutation {
   MarkUserToVerified(data: InputToUpdateUser!): Boolean
   UpdateUserTokenDevice (data: InputToUpdateTokenDevice!): Boolean
   FollowModerator (data: InputToFollowerModerator!): Boolean
+  RecoveryPassword (data: InputToPasswordRecovery!): Boolean
+  RecoveryPasswordConfirm (data: InputToPasswordRecoveryConfirm!): Boolean
 
   # card
   InsertCard(data: InputToCreateCard!): Boolean!
