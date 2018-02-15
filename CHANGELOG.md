@@ -5,6 +5,9 @@ Todas as anotações do projeto estarão neste documento
 O formato é baseado em [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 e esse projeto segue [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2018-02-15
++ Criado lógica para resetar senha
+
 ## [3.0.2] - 2018-02-13
 + Corrigido problema com variável de ambiente do firebase em produção
 

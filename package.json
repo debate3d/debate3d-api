@@ -1,6 +1,6 @@
 {
   "name": "debate3d-api",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "An debate3d api build with HapiJS and PostgreSQL Database",
   "engines": {
     "node": ">=8.0.0",
